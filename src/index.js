@@ -109,6 +109,14 @@ const server = http.createServer((req, res) => {
       return;
     }
 
+    if (path === "/version") {
+      writeJson(res, 200, {
+        version: "1.0.0",
+        nodeVersion: process.version
+      });
+      return;
+    }
+
     if (path === "/health") {
       writeJson(res, 200, { status: "healthy" });
       return;
